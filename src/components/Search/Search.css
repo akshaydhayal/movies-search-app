@@ -1,0 +1,31 @@
+.search-container{
+    position: relative;
+}
+.search-banner{
+    height: 270px;
+    width: 98.7vw;
+}
+.search-bar{
+    display: flex;
+    position: absolute;
+    top: 200px;
+    left: 6vw; 
+}
+.search-input{
+    width: 75vw;
+    height: 3vw;
+}
+.search-bar>button{
+    width: 80px;
+}
+.search-input:focus{
+    outline: none;
+}
+
+
+
+
+
+.movie-title{
+    color:white;
+}
