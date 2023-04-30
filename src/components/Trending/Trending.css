@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .movie-list{
     display: flex;
     overflow: auto;
@@ -16,11 +17,20 @@
     margin-right: 12px;
     width:130px;
     height:260;
+    border:1px solid white;
+}
+.movie-poster:hover{
+    margin-right: 12.5px;
+    width:133px;
+    height:264;
+    border:1px solid white;
 }
 .movie-title{
     color:white;
     font-size: 15px;
     margin-bottom: 0px;
+    font-family: 'Karla','sans-serif';
+    font-weight: 500;
 }
 .trending-head{
     color:white;

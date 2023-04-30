@@ -4,7 +4,8 @@ import './Navbar.css';
 function Navbar(props) {
     return (
         <div className='navbar'>
-            <p>Movetica</p>
+            {/* <p>Movetica</p> */}
+            <img className='nav-logo' src="/assets/logo.png"/>
             <div className='nav-links'>
                 <p>Recent</p>
                 <p>Coming soon</p>

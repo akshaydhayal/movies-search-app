@@ -25,7 +25,56 @@
 
 
 
-
+.movie-item{
+    display: flex;
+    align-items: center;
+    border:1px solid white;
+    width: 80vw;
+    margin: 10px auto 0px auto;
+    padding: 10px;
+    background-color: rgb(45, 51, 57);
+}
+.movie-item:hover{
+    display: flex;
+    align-items: center;
+    border:1px solid white;
+    width: 81vw;
+    margin: 11px auto 0px auto;
+    padding: 10px;
+    background-color: rgb(45, 51, 57);
+}
+.movie-poster-img{
+    height:200px;
+    width:130px;
+    border:1px solid white;
+}
+.movie-details{
+    text-align: left;
+    margin-left: 20px;
+}
 .movie-title{
+    color:white;
+    font-family: 'Inter','sans-serif';
+    font-size: 24px;
+    font-weight: 600;
+}
+.movie-release,.movie-rating{
+    color:rgb(207, 197, 197);
+    font-family: 'Karla','sans-serif';
+    font-size: 13px;
+    font-weight: 400;
+}
+/* .movie-rating{
+    color:white;
+} */
+.movie-bio{
+    color:white;
+    /* font-family: 'Inter','sans-serif'; */
+    font-family: 'Karla','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
+    text-align: justify;
+}
+.movie-voters{
     color:white;
 }

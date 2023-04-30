@@ -20,11 +20,30 @@ function Search(props) {
     }
 
     const moviesSearchedElement=moviesSearchList.map((movie)=>{
-        return(
-            <div className='movie-search-list'>
-                <h2 className='movie-title'>{movie.title}</h2>
+        return (
+          <div className="movie-search-list">
+            <div className="movie-item">
+              <img
+                className="movie-poster-img"
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+              />
+              <div className="movie-details">
+                <p className="movie-title">{movie.title}</p>
+                <p className="movie-release">
+                  RELEASE DATE : {movie.release_date}
+                </p>
+                <p className="movie-rating">
+                  RATING: {movie.vote_average}  ({movie.vote_count} People voted this)
+                </p>
+
+                <p className="movie-bio">{movie.overview}</p>
+                {/* <p className="movie-popularity">popularity : {movie.popularity}</p> */}
+
+                {/* <p className="movie-voters">vote count : {movie.vote_count}</p> */}
+              </div>
             </div>
-        )
+          </div>
+        );
     })
     return (
       <div className="search-container">
