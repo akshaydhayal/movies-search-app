@@ -7,17 +7,74 @@ p{
 .movie-banner{
     margin:0px 20px 0px 30px;
 }
+.movie-info-container{
+    /* border:1px solid white; */
+    width:40vw;
+    margin-right:20px;
+}
+.movie-main-info{
+    text-align: left;
+    margin: 0px 0px 0px 10px;
+}
+
 .movie-img{
     height:420px;
     width:300px;
     border:1px solid white
+}
+.title{
+    display: flex;
+    align-items: center;
+    border:1px solid white;
+}
+.movie-title1{
+    font-family: 'Inter','sans-serif';
+    font-size: 29px;
+    font-weight: 700;
+    border:1px solid white;
+}
+.movie-tag{
+    font-family: 'Karla','sans-serif';
+    font-size: 18px;
+    font-weight: 500;
+    color:rgb(214, 197, 175);
+    border:1px solid white;
+}
+.movie-properties{
+    font-family: 'Karla','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
+    color:rgb(190, 187, 184);
+}
+.movie-subheading{
+    font-family: 'Playfair','sans-serif';
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0px 0px 5px 10px;
+    text-align: left;
+}
+.movie-bio{
+    font-family: 'Inter','sans-serif';
+    font-size: 12px;
+    font-weight: 400;
+    padding: 9px;
+    justify-content: center;
+    color:rgb(228, 225, 220);
+    margin-top: 0px;
 }
 .movie-nav{
     display: flex;
     justify-content: space-around;
     border:1px solid white;
 }
-
+.movie-rev{
+    font-family: 'Karla','sans-serif';
+    font-size: 15px;
+    font-weight: 400;
+    color:rgb(190, 187, 184);
+    text-align: left;
+    margin-left:10px;
+}
 .movie-genres{
     display: flex;
     flex-direction: row;
@@ -40,11 +97,41 @@ p{
 }
 .cast-list{
     display: flex;
+    justify-content: center;
+    margin-top:10px;
 }
 .cast-img{
-    height:50px;
-    width:50px;
-    border-radius: 50%;;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    margin-right: 0px;
+}
+.cast-name{
+    font-family: 'Inter','sans-serif';
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.cast-character{
+    font-family: 'Karla','sans-serif';
+    font-size: 10px;
+    font-weight: 400;
+    color: rgb(236, 233, 229);
+    margin-top: 4px;
+}
+.movie-reviews-list{
+    width: 28vw;
+    /* border:1px solid white; */
+}
+.review-item{
+    text-align: justify;
+    font-family: 'Karla','sans-serif';
+    font-size: 13px;
+    font-weight: 400;
+    overflow: auto;
+    max-height: 150px;
+    padding: 8px;
+    border:1px solid rgb(141, 119, 119);
 }
 .similar-movie-list{
     display: flex;

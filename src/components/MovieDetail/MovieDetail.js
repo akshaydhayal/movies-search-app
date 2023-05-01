@@ -26,7 +26,7 @@ function MovieDetail(props) {
         setSimilarMovies(similarMoviesData.results);
         console.log("Similar movies : "+JSON.stringify(similarMoviesData.results));
 
-        const movie_cast_api_url = `https://api.themoviedb.org/3/movie/1271/credits?api_key=4d2897d585e151da612cddf1da40808b&language=en-US`;
+        const movie_cast_api_url = `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=4d2897d585e151da612cddf1da40808b&language=en-US`;
         const castResponse = await fetch(movie_cast_api_url);
         const moviesCastData = await castResponse.json();
         setMovieCast(moviesCastData.cast);
@@ -121,89 +121,121 @@ function MovieDetail(props) {
 
 
     return (
-      <div className="movie-detail-container">
-        <div className="movie-banner">
-          <img
-            className="movie-img"
-            src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
-          />
-          {movieData.genres ? (
-            <div className="movie-genres">
-              {movieData.genres.map((item) => {
-                return <div className="movie-type">{item.name}</div>;
-              })}
-            </div>
-          ) : (
-            <p></p>
-          )}
-        </div>
-        <div>
-          <div className="movie-nav">
+      <div className="movie-container">
+        <div className="movie-detail-container">
+          <div className="movie-banner">
+            <img
+              className="movie-img"
+              src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
+            />
+            {movieData.genres ? (
+              <div className="movie-genres">
+                {movieData.genres.map((item) => {
+                  return <div className="movie-type">{item.name}</div>;
+                })}
+              </div>
+            ) : (
+              <p></p>
+            )}
+          </div>
+          <div className="movie-info-container">
+            {/* <div className="movie-nav">
             <p>Info</p>
             <p>Reviews</p>
             <p>Third option</p>
-          </div>
-          <p>NOTABLE CAST</p>
-          {movieCast.length != 0 ? (
-            <div className="cast-list">
-              {movieCast.map((item, ind) => {
-                if (ind < 5) {
-                  return (
-                    <div>
-                      <img
-                        className="cast-img"
-                        src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
-                      />
-                      <p>{item.original_name}</p>
-                    </div>
-                  );
-                }
-              })}
+          </div> */}
+            <div className="movie-main-info">
+              <div className="title">
+                <p className="movie-title1">{movieData.title}</p>
+                <p className="movie-tag">-- ( {movieData.tagline} )</p>
+              </div>
+              <p className="movie-properties">
+                {movieData.adult === true ? "18+" : "Child Friendly"} /
+                {Math.floor(movieData.runtime / 60)}h:{movieData.runtime % 60}m
+                / {movieData.original_language} / {movieData.release_date}
+              </p>
+              <p className="movie-properties">
+                RATING: {movieData.vote_average} ({movieData.vote_count} People
+                voted this)
+              </p>
             </div>
-          ) : (
-            <p></p>
-          )}
-          <p>title : {movieData.title}</p>
-          <p>runtime : {movieData.runtime}</p>
-          <p>tagline : {movieData.tagline}</p>
-          <p>revenue : {movieData.revenue}</p>
-          <p>budget : {movieData.budget}</p>
-          <p>release data : {movieData.release_date}</p>
-          <p>bio : {movieData.overview}</p>
-          <p>vote avg : {movieData.vote_average}</p>
-          <p>Adult movie : {movieData.adult}</p>
-          <p>
-            Reviews :{" "}
-            {movieReview.length != 0 ? movieReview[0].content : "ghdjk"}
-          </p>
+            <p className="movie-subheading">STORYLINE</p>
+            <p className="movie-bio">{movieData.overview}</p>
+            <p className="movie-subheading">NOTABLE CAST</p>
+            {movieCast.length != 0 ? (
+              <div className="cast-list">
+                {movieCast.map((item, ind) => {
+                  if (ind < 5) {
+                    return (
+                      <div>
+                        <img
+                          className="cast-img"
+                          src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
+                        />
+                        <p className="cast-name">{item.original_name}</p>
+                        <p className="cast-character">(As {item.character})</p>
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            ) : (
+              <p></p>
+            )}
 
-          {movieData.spoken_languages ? (
-            <div className="movie-languages">
-              <p>Languages : </p>
-              {movieData.spoken_languages.map((lang) => {
-                return <p>{lang.english_name}</p>;
-              })}
-            </div>
-          ) : (
-            <p></p>
-          )}
-          <p>Similar Movies</p>
-          {similarMovies.length!= 0 ? 
-          <div className='similar-movie-list'>
-            {(similarMovies.map((movie,ind) => {
-            if(ind<5){
+            <p className="movie-rev">
+              Box Office Collection:{" "}
+              {movieData.revenue != 0 ? movieData.revenue : "Data not present"}
+            </p>
+            <p className="movie-rev">
+              Movie Budget :{" "}
+              {movieData.budget != 0 ? movieData.revenue : "Data not present"}
+            </p>
+
+            {movieData.spoken_languages ? (
+              <div className="movie-languages">
+                <p className="movie-rev">Languages : </p>
+                {movieData.spoken_languages.map((lang) => {
+                  return <p className="movie-rev">{lang.english_name}</p>;
+                })}
+              </div>
+            ) : (
+              <p></p>
+            )}
+          </div>
+          <div className="movie-reviews-list">
+            <p className="movie-subheading">REVIEWS</p>
+            {movieReview.length != 0 ? (
+              <div className="review-list">
+                {movieReview.map((item) => {
+                  return <p className="review-item">{item.content}</p>;
+                })}
+              </div>
+            ) : (
+              <p></p>
+            )}
+          </div>
+        </div>
+        <p>Similar Movies</p>
+        {similarMovies.length != 0 ? (
+          <div className="similar-movie-list">
+            {similarMovies.map((movie, ind) => {
+              if (ind < 7) {
                 return (
                   <div className="similar-movie">
                     <img
                       className="similar-movie-poster"
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     />
-                    <p className='similar-movie-title'>{movie.title}</p>
+                    <p className="similar-movie-title">{movie.title}</p>
                   </div>
                 );
-            }
-          }))}</div>:<p></p>}
-        </div>
+              }
+            })}
+          </div>
+        ) : (
+          <p></p>
+        )}
       </div>
     );
 }
