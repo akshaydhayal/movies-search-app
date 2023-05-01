@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './Search.css';
 import Trending from '../Trending/Trending';
+import MovieDetail from '../MovieDetail/MovieDetail';
 
 function Search(props) {
     const [movieSearch,setMovieSearch]=useState("");
     const[isSearchClicked,setIsSearchClicked]=useState(false);
     const [moviesSearchList,setMoviesSearchList]=useState([]);
+
+    const [isMovieClicked,setIsMovieClicked]=useState({
+                                              "status":false,
+                                              "movieId":null,
+                                            });
 
     async function searchMovie(){
         setIsSearchClicked(true);
@@ -18,11 +24,11 @@ function Search(props) {
         setMoviesSearchList(data.results);
         console.log("movie details : "+JSON.stringify(data.results[0]));
     }
-
+    
     const moviesSearchedElement=moviesSearchList.map((movie)=>{
         return (
           <div className="movie-search-list">
-            <div className="movie-item">
+            <div className="movie-item" onClick={()=>{setIsMovieClicked({"status":true,"movieId":movie.id})}}>
               <img
                 className="movie-poster-img"
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -60,7 +66,7 @@ function Search(props) {
           <button onClick={searchMovie}> Search</button>
         </div>
         
-        {isSearchClicked===false?<Trending />:moviesSearchedElement}
+        {isSearchClicked===false?<Trending />:(isMovieClicked.status===false? moviesSearchedElement:<MovieDetail movieId={isMovieClicked.movieId}/>)}
       </div>
     );
 }

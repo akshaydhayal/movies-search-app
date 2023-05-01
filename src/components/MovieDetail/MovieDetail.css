@@ -1,0 +1,60 @@
+p{
+    color:white
+}
+.movie-detail-container{
+    display: flex;
+}
+.movie-banner{
+    margin:0px 20px 0px 30px;
+}
+.movie-img{
+    height:420px;
+    width:300px;
+    border:1px solid white
+}
+.movie-nav{
+    display: flex;
+    justify-content: space-around;
+    border:1px solid white;
+}
+
+.movie-genres{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.movie-type{
+    border:1px solid white;
+    color:white;
+    padding:5px;
+    margin-right:6px;
+    border-radius: 5px;
+    min-width: 60px;
+    background-color: rgba(174, 172, 168, 0.37);
+    font-family: 'Karla','sans-serif';
+    font-size: 17px;
+    font-weight: 400;
+}
+.movie-languages{
+    display: flex;
+}
+.cast-list{
+    display: flex;
+}
+.cast-img{
+    height:50px;
+    width:50px;
+    border-radius: 50%;;
+}
+.similar-movie-list{
+    display: flex;
+    justify-content: space-around;
+}
+.similar-movie-poster{
+    width:130px;
+    height:260;
+}
+.similar-movie-title{
+    max-width: 100px;
+    /* max-height: 40px; */
+}
