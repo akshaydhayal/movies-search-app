@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-
+import { Route, Router, Switch } from 'react-router-dom';
 function Navbar(props) {
     return (
         <div className='navbar'>
@@ -13,6 +13,7 @@ function Navbar(props) {
                 <p>News</p>
             </div>
             <p>Login</p>
+
         </div>
     );
 }

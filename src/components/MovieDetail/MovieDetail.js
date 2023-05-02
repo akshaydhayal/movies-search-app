@@ -204,7 +204,7 @@ function MovieDetail(props) {
             )}
           </div>
           <div className="movie-reviews-list">
-            <p className="movie-subheading">REVIEWS</p>
+            <p className="movie-review-head">REVIEWS</p>
             {movieReview.length != 0 ? (
               <div className="review-list">
                 {movieReview.map((item) => {
@@ -212,11 +212,11 @@ function MovieDetail(props) {
                 })}
               </div>
             ) : (
-              <p></p>
+              <p>Sorry! No reviews Present for this movie.</p>
             )}
           </div>
         </div>
-        <p>Similar Movies</p>
+        <p className='similar-movies-head'>RELATED MOVIES</p>
         {similarMovies.length != 0 ? (
           <div className="similar-movie-list">
             {similarMovies.map((movie, ind) => {
@@ -227,7 +227,7 @@ function MovieDetail(props) {
                       className="similar-movie-poster"
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     />
-                    <p className="similar-movie-title">{movie.title}</p>
+                    <p className="movie-title">{movie.title}</p>
                   </div>
                 );
               }
